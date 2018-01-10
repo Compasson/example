@@ -1,0 +1,26 @@
+Перход в каталог
+сd c:\Prog\src
+chdir c:\Prog\src
+
+Создание папки
+md c:\Prog\src
+
+
+ Запуск  Java из командной строки:
+ *             1-Вариант: без разделения бинарных и исходных файлов
+ *                   - переход в папу с исходным файлом
+ *                   - javac HelloWord.java
+ *                   - java -classpath . HelloWord
+ *                 
+ *             2-вариант:бинарные и исходные файлы разделены:
+ *                   - перход в общюю папку, где хранятся папки bin и src.
+ *                   - javac -d bin src/HelloWord.java    // Здесь -d bin показывает, что бинарные файлы будут храниться отдельно.
+ *                   - java -classpath ./bin HelloWord    // Здесь запускается бинарный файл HelloWord.class
+ 
+ 3) Если файлы разложим по пакетам, то надо указать ключ -sourcepath ./src
+ 
+          компилируем:
+		              javac -sourcepath ./src -d bin src/com/qwertovsky/helloworld/HelloWorld.java
+					  
+		  Запускаем:  java -classpath ./bin com.qwertovsky.helloworld.HelloWorld
+

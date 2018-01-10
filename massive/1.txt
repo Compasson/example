@@ -1,0 +1,5 @@
+Java 8
+
+со своим Stream API и Ћ€мбда-выражени€ми позволила сделать это в одну строчку:
+
+            Files.lines(Paths.get(FILE_NAME), StandardCharsets.UTF_8).forEach(System.out::println);

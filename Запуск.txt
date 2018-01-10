@@ -1,0 +1,50 @@
+c:           \\ Переход на другой диск
+cd\
+cd C:\prog
+javac HelloWorld.java \\ Компилируем, появляется в данной папке класс HelloWorld
+javac -d bin src/HelloWorld.java \\Отделяем бинарные файлы от исходников
+Теперь сделаем тоже самое, но с каталогами. Создадим каталог HelloWorld и в нем две папки src и bin.Компилируем
+
+java -classpath ./bin HelloWorld \\Здесь мы указали, что бинарные файлы будут сохраняться в отдельную папку bin и не путаться с исходниками. 
+
+
+ВСЕ.
+
+
+
+Используем пакеты
+
+
+А то, вдруг, программа перестанет быть просто HelloWorld-ом. Пакетам лучше давать понятное и уникальное имя. Это позволит добавить данную программу в другой проект без конфликта имен. Прочитав некоторые статьи, можно подумать, что для имени пакета обязательно нужен домен. Это не так. Домены — это удобный способ добиться уникальности. Если своего домена нет, воспользуйтесь аккаунтом на сайте (например, ru.habrahabr.mylogin). Он будет уникальным. Учтите, что имена пакетов должны быть в нижнем регистре. И избегайте использования спецсимволов. Проблемы возникают из-за разных платформ и файловых систем.
+
+Поместим наш класс в пакет с именем com.qwertovsky.helloworld. Для этого добавим в начало файла строчку
+	package com.qwertovsky.helloworld;
+В каталоге src создадим дополнительные каталоги, чтобы путь к файлу выглядел так: src/com/qwertovsky/helloworld/HelloWorld.java. 
+Компилируем
+	javac -d bin src/com/qwertovsky/helloworld/HelloWorld.java
+В каталоге bin автоматически создастся структура каталогов как и в src.
+	HelloWorld
+	'---bin
+	'   '---com
+	'       '---qwertovsky
+	'          '---helloworld
+	'             '---HelloWorld.class
+	'---src
+	    '---com
+	        '---qwertovsky
+	            '---helloworld
+	                '---HelloWorld.java	
+Запускаем
+	java -classpath ./bin com.qwertovsky.helloworld.HelloWorld
+
+
+
+cd .. на уровень выше
+cd \ в корень текущего диска
+d: перейти на диск D
+cd c:\windows перейти в каталог windows
+
+
+ДОБАВЛЕНИЕ jar d CLASSPATH
+Adding Classes to the JAR File's Classpath
+jar cfm MyJar.jar Manifest.txt MyPackage/*.class // В манифесте пишем: Class-Path: MyUtils.jar
